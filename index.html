@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe Coding Course</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Vibe Coding Course</h1>
+    <nav id="nav"></nav>
+  </header>
+  <main id="content">
+    <!-- Course content will be injected here by main.js -->
+  </main>
+  <aside id="wizard">
+    <h2>Assistant Wizard</h2>
+    <form id="wizard-form">
+      <label>
+        Role
+        <select id="wizard-role">
+          <option value="pm-analyst">PM/Analyst</option>
+          <option value="developer">Developer</option>
+          <option value="test-runner">Test‑Runner</option>
+          <option value="vibe-coach">Vibe‑Coach</option>
+        </select>
+      </label>
+      <label>
+        Task description
+        <textarea id="wizard-task" rows="3" placeholder="Describe your task…"></textarea>
+      </label>
+      <button type="submit">Generate Prompt</button>
+    </form>
+    <pre id="wizard-output"></pre>
+  </aside>
+  <aside id="capsule">
+    <h2>Task Capsule Builder</h2>
+    <form id="capsule-form">
+      <label>ID <input id="capsule-id" type="text" placeholder="ABC‑123"></label>
+      <label>Title <input id="capsule-title" type="text" placeholder="Add health endpoint"></label>
+      <label>Goal <input id="capsule-goal" type="text" placeholder="Expose /health for uptime checks"></label>
+      <label>Acceptance Criteria
+        <textarea id="capsule-ac" rows="3" placeholder="Given… When… Then…"></textarea>
+      </label>
+      <label>Repo <input id="capsule-repo" type="text" placeholder="github.com/org/repo"></label>
+      <label>Branch naming <input id="capsule-branch" type="text" placeholder="feature/ABC‑123"></label>
+      <label>Dependencies
+        <textarea id="capsule-deps" rows="2" placeholder="ABC‑122, ABC‑121"></textarea>
+      </label>
+      <button type="submit">Generate Capsule</button>
+    </form>
+    <pre id="capsule-output"></pre>
+  </aside>
+  <script src="main.js"></script>
+</body>
+</html>
