@@ -192,16 +192,18 @@ pre {
     max-width: none;
   }
 
-  /* Position sidebars in the rightmost column. Each sidebar will stack
-     vertically and scroll independently if its content overflows. */
-  #wizard,
-  #capsule {
-    grid-row: 2 / 3;
-    grid-column: 3 / 4;
-    position: sticky;
-    top: 1rem;
-    max-height: calc(100vh - 2rem);
-    overflow-y: auto;
-    max-width: none;
-  }
+      /* Position sidebars in the rightmost column. Each sidebar will stack
+         vertically. Remove sticky positioning to avoid overlap between the
+         wizard and capsule. */
+      #wizard,
+      #capsule {
+        grid-row: 2 / 3;
+        grid-column: 3 / 4;
+        max-width: none;
+      }
+
+      /* Add space between wizard and capsule when stacked */
+      #wizard {
+        margin-bottom: 1rem;
+      }
 }
