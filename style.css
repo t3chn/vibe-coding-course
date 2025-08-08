@@ -192,17 +192,17 @@ pre {
     max-width: none;
   }
 
-      /* Position sidebars in the rightmost column. Each sidebar will stack
-         vertically. Remove sticky positioning to avoid overlap between the
-         wizard and capsule. */
+      /* Position sidebars in the rightmost column. Remove explicit grid-row
+         positioning so that the wizard and capsule naturally stack in
+         successive rows within the sidebar column. Without setting grid-row
+         both elements flow into their own rows, preventing overlap. */
       #wizard,
       #capsule {
-        grid-row: 2 / 3;
         grid-column: 3 / 4;
         max-width: none;
       }
 
-      /* Add space between wizard and capsule when stacked */
+      /* Separate the wizard and capsule with a margin */
       #wizard {
         margin-bottom: 1rem;
       }
