@@ -154,17 +154,22 @@ pre {
   body {
     display: grid;
     grid-template-columns: 220px 1fr 320px;
-    grid-template-rows: auto 1fr;
+    /* Three rows: header (auto), main area (1fr) and sidebar bottom (auto).
+       This allows the wizard and capsule to occupy separate rows in the
+       sidebar column without being clipped by the 1fr row. */
+    grid-template-rows: auto 1fr auto;
     gap: 1rem;
   }
 
   header {
     grid-column: 1 / -1;
+    grid-row: 1;
   }
 
   /* Convert nav into a vertical sidebar */
   nav {
-    grid-row: 2 / 3;
+    /* Span rows 2 and 3 so the sidebar occupies the full vertical space. */
+    grid-row: 2 / 4;
     grid-column: 1 / 2;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -186,7 +191,8 @@ pre {
   }
 
   main {
-    grid-row: 2 / 3;
+    /* Span rows 2 and 3 to fill the available vertical space next to the sidebar. */
+    grid-row: 2 / 4;
     grid-column: 2 / 3;
     margin: 0;
     max-width: none;
@@ -196,14 +202,17 @@ pre {
          positioning so that the wizard and capsule naturally stack in
          successive rows within the sidebar column. Without setting grid-row
          both elements flow into their own rows, preventing overlap. */
-      #wizard,
+      /* Place the wizard in the second row (row index 2) of the sidebar column. */
+      #wizard {
+        grid-column: 3 / 4;
+        grid-row: 2;
+        max-width: none;
+        margin-bottom: 1rem;
+      }
+      /* Place the capsule builder in the third row. */
       #capsule {
         grid-column: 3 / 4;
+        grid-row: 3;
         max-width: none;
-      }
-
-      /* Separate the wizard and capsule with a margin */
-      #wizard {
-        margin-bottom: 1rem;
       }
 }
